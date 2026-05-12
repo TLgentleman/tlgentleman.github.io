@@ -40,6 +40,18 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden; /* Zapobiega poziomemu scrollowi */
+    
+    /* =========================================
+    DESIGNER TRICK: SUBTELNA TEKSTURA DREWNA
+       ========================================= */
+    /* Nakładamy 95% ciemnego koloru bazowego na delikatny wzór drewna */
+    background-image: linear-gradient(
+        rgba(15, 15, 15, 0.93), 
+        rgba(15, 15, 15, 0.97)
+    ), url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    
+    /* Tekstura jest przyklejona do ekranu, co daje efekt głębi przy scrollowaniu */
+    background-attachment: fixed; 
 }
 
 h1, h2, h3 { 
