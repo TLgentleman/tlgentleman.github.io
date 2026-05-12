@@ -15,18 +15,30 @@
 
     <!-- Nawigacja główna -->
     <header>
-        <nav class="classy-nav">
+<nav class="classy-nav">
             <div class="logo">Portfolio.</div>
+            
+            <!-- Linki nawigacyjne -->
             <ul class="nav-links">
                 <li><a href="#about" class="holo-btn" data-holo>O mnie</a></li>
-                <li><a href="#skills" class="holo-btn" data-holo>Stack Technologiczny</a></li>
+                <li><a href="#skills" class="holo-btn" data-holo>Stack</a></li>
                 <li><a href="#projects" class="holo-btn" data-holo>Projekty</a></li>
                 <li><a href="#contact" class="holo-btn" data-holo>Kontakt</a></li>
             </ul>
-            <!-- Przycisk zmiany motywu (przygotowany pod JS) -->
-            <button id="theme-toggle" class="holo-btn" data-holo aria-label="Przełącz motyw">
-                <span class="theme-icon">🌙 / ☀️</span>
-            </button>
+
+            <!-- Zgrupowane przyciski mobilne -->
+            <div class="mobile-controls">
+                <button id="theme-toggle" class="holo-btn" data-holo aria-label="Przełącz motyw">
+                    <span class="theme-icon">🌙 / ☀️</span>
+                </button>
+                
+                <!-- Ikona Hamburger Menu -->
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
 

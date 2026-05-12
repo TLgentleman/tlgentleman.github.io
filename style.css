@@ -224,3 +224,99 @@ footer {
     opacity: 1; 
     transform: translateY(0); 
 }
+/* =========================================
+   RESPONSYWNOŚĆ (SMARTFONY I TABLETY)
+   ========================================= */
+
+/* Domyślnie ukrywamy hamburger na komputerach */
+.mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001; /* Zawsze nad menu */
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-gold);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    /* 1. Modyfikacja układu i paddingów */
+    section {
+        padding: 60px 5vw; /* Mniejsze marginesy boczne na telefonie */
+        scroll-margin-top: 70px;
+    }
+
+    .section-hero h1 {
+        font-size: 2.5rem; /* Zmniejszony nagłówek */
+    }
+
+    nav.classy-nav {
+        padding: 1rem 5vw;
+    }
+
+    /* 2. Logika mobilnego Menu */
+    .hamburger {
+        display: flex; /* Pokazujemy hamburgera */
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%; /* Ukrywamy menu poza prawą krawędzią ekranu */
+        top: 0;
+        flex-direction: column;
+        background-color: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        border-left: 1px solid var(--border-color);
+    }
+
+    /* Klasa dodawana przez JS, żeby wysunąć menu */
+    .nav-links.active {
+        right: 0; 
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    /* 3. Wyłączenie efektu Holo na ekranach dotykowych */
+    @media (hover: none) {
+        .holo-btn::before {
+            display: none !important; 
+        }
+        .holo-btn:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}
+
+/* Animacja krzyżyka (X) dla włączonego menu */
+.hamburger.toggle .bar:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.hamburger.toggle .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.toggle .bar:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
