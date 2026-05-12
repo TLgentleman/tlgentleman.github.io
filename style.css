@@ -3,11 +3,14 @@
    ========================================= */
 :root[data-theme="dark"] {
     --bg-color: #0f0f0f;
-    --section-bg: #1a1614; /* Ciemne drewno/orzech */
-    --text-primary: #e0d8c3; /* Kość słoniowa */
-    --accent-gold: #c5a059; /* Stare złoto */
+    --section-bg: #1a1614; 
+    --text-primary: #e0d8c3; 
+    --accent-gold: #c5a059; 
     --glass-bg: rgba(26, 22, 20, 0.85);
     --border-color: rgba(197, 160, 89, 0.3);
+    /* Ciemny orzech - niemal nieprzezroczysty */
+    --bg-overlay-1: rgba(15, 15, 15, 0.93);
+    --bg-overlay-2: rgba(15, 15, 15, 0.97);
 }
 
 :root[data-theme="light"] {
@@ -16,7 +19,11 @@
     --text-primary: #2c241e;
     --accent-gold: #a67c52;
     --glass-bg: rgba(255, 255, 255, 0.9);
-    --border-color: rgba(166, 124, 82, 0.2);
+    --border-color: rgba(166, 124, 82, 0.3);
+    
+    /* Drastycznie zmniejszone krycie gradientu (odsłaniamy drewno) */
+    --bg-overlay-1: rgba(253, 251, 247, 0.35); 
+    --bg-overlay-2: rgba(255, 250, 240, 0.55);
 }
 
 /* =========================================
@@ -39,18 +46,14 @@ body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden; /* Zapobiega poziomemu scrollowi */
+    overflow-x: hidden; 
     
-    /* =========================================
-    DESIGNER TRICK: SUBTELNA TEKSTURA DREWNA
-       ========================================= */
-    /* Nakładamy 95% ciemnego koloru bazowego na delikatny wzór drewna */
+    /* Nowy, bardziej wyrazisty plik źródłowy (Retina Wood) */
     background-image: linear-gradient(
-        rgba(15, 15, 15, 0.93), 
-        rgba(15, 15, 15, 0.97)
-    ), url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+        var(--bg-overlay-1), 
+        var(--bg-overlay-2)
+    ), url('https://www.transparenttextures.com/patterns/retina-wood.png');
     
-    /* Tekstura jest przyklejona do ekranu, co daje efekt głębi przy scrollowaniu */
     background-attachment: fixed; 
 }
 
