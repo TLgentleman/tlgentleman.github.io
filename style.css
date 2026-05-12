@@ -1,0 +1,214 @@
+/* =========================================
+   ZMIENNE CSS (CUSTOM PROPERTIES) - MOTYWY
+   ========================================= */
+:root[data-theme="dark"] {
+    --bg-color: #0f0f0f;
+    --section-bg: #1a1614; /* Ciemne drewno/orzech */
+    --text-primary: #e0d8c3; /* Kość słoniowa */
+    --accent-gold: #c5a059; /* Stare złoto */
+    --glass-bg: rgba(26, 22, 20, 0.85);
+    --border-color: rgba(197, 160, 89, 0.3);
+}
+
+:root[data-theme="light"] {
+    --bg-color: #fdfbf7;
+    --section-bg: #ffffff;
+    --text-primary: #2c241e;
+    --accent-gold: #a67c52;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(166, 124, 82, 0.2);
+}
+
+/* =========================================
+   RESET I USTAWIENIA GLOBALNE
+   ========================================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; 
+}
+
+html {
+    /* Płynne przewijanie do kotwic (#about, #projects itp.) */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden; /* Zapobiega poziomemu scrollowi */
+}
+
+h1, h2, h3 { 
+    font-family: 'Playfair Display', serif; 
+    color: var(--accent-gold); 
+    font-weight: 700;
+}
+
+/* =========================================
+   NAWIGACJA (GLASSMORPHISM)
+   ========================================= */
+header {
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Wsparcie dla Safari */
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav.classy-nav {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 1.2rem 2rem;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 2rem; 
+    align-items: center;
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-primary); 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+/* =========================================
+   PRZYCISKI I EFEKT HOLO
+   ========================================= */
+.holo-btn {
+    position: relative;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.3s;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.holo-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+/* Element tworzący blask podążający za myszką */
+.holo-btn::before {
+    content: '';
+    position: absolute;
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.holo-btn:hover::before { 
+    opacity: 1; 
+}
+
+/* =========================================
+   SEKCJE I UKŁAD (LAYOUT)
+   ========================================= */
+section { 
+    padding: 80px 10vw; 
+    min-height: 50vh; 
+    border-bottom: 1px solid var(--border-color);
+    /* Zapobiega ucinaniu nagłówków przez fixed header przy kliknięciu w link */
+    scroll-margin-top: 80px; 
+}
+
+.section-hero { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    min-height: 100vh; /* Hero na pełny ekran */
+    padding-top: 100px; 
+}
+
+.section-hero h1 { 
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsywny rozmiar fontu */
+    margin-bottom: 1.5rem; 
+}
+
+.section-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+/* Globalny Grid dla kart (Umiejętności i Projekty) */
+.skills-grid,
+.projects-container {
+    display: grid;
+    /* Tworzy responsywne kolumny, minimum 300px szerokości, dopasowują się do reszty */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem; 
+    margin-top: 3rem;
+}
+
+.skill-category,
+.project-card {
+    background: var(--section-bg);
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card h3 { margin-bottom: 1rem; }
+.project-card p { margin-bottom: 1.5rem; flex-grow: 1; }
+
+/* Stopka */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: var(--border-color);
+}
+
+/* =========================================
+   ANIMACJE (SCROLL REVEAL)
+   ========================================= */
+.reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: 0.8s opacity ease-out, 0.8s transform ease-out; 
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
