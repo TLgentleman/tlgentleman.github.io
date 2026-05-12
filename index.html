@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Moja Wizytówka</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Inżynier Oprogramowania</title>
+    <!-- Tutaj w przyszłości podepniemy nasze style i skrypty -->
 </head>
 <body>
-    <header><h1>Moja Wizytówka - Portfolio</h1></header>
-    <main>Moja wizytówka...</main>
+
+    <!-- Nawigacja główna -->
+    <header>
+        <nav class="classy-nav">
+            <div class="logo">Portfolio.</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="holo-btn" data-holo>O mnie</a></li>
+                <li><a href="#skills" class="holo-btn" data-holo>Stack Technologiczny</a></li>
+                <li><a href="#projects" class="holo-btn" data-holo>Projekty</a></li>
+                <li><a href="#contact" class="holo-btn" data-holo>Kontakt</a></li>
+            </ul>
+            <!-- Przycisk zmiany motywu (przygotowany pod JS) -->
+            <button id="theme-toggle" class="holo-btn" data-holo aria-label="Przełącz motyw">
+                <span class="theme-icon">🌙 / ☀️</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Główna zawartość strony -->
+    <main>
+        <!-- Sekcja Hero (Powitanie) -->
+        <section id="hero" class="section-hero">
+            <h1>Witaj w moim portfolio</h1>
+            <p>Tworzę oprogramowanie z naciskiem na jakość, czysty kod i wydajność.</p>
+        </section>
+
+        <!-- Sekcja O mnie -->
+        <section id="about" class="section-about">
+            <h2>O mnie</h2>
+            <p>Jestem studentem informatyki na Akademii Tarnowskiej. Pasjonuję się rozwiązywaniem złożonych problemów inżynieryjnych, optymalizacją algorytmów i budowaniem skalowalnych aplikacji. Kładę duży nacisk na ciągły rozwój i poznawanie nowych paradygmatów programowania.</p>
+        </section>
+
+        <!-- Sekcja Umiejętności -->
+        <section id="skills" class="section-skills">
+            <h2>Technologie, z którymi pracuję</h2>
+            <div class="skills-grid">
+                <article class="skill-category">
+                    <h3>Systemy i Backend</h3>
+                    <p>C, C++, C#, Java, Python</p>
+                </article>
+                <article class="skill-category">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, React</p>
+                </article>
+                <article class="skill-category">
+                    <h3>Analiza Danych i Obliczenia</h3>
+                    <p>Matlab, R</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sekcja Projekty (Szkielet do rozbudowy) -->
+        <section id="projects" class="section-projects">
+            <h2>Wybrane Projekty</h2>
+            <div class="projects-container">
+                <!-- Karta projektu 1 (placeholder) -->
+                <article class="project-card">
+                    <h3>Architektura Niskopoziomowa</h3>
+                    <p>Miejsce na krótki opis techniczny i biznesowy Twojego projektu (np. w C++).</p>
+                    <a href="#" class="btn-link">Zobacz kod</a>
+                </article>
+                
+                <!-- Karta projektu 2 (placeholder) -->
+                <article class="project-card">
+                    <h3>Aplikacja Webowa</h3>
+                    <p>Miejsce na opis projektu fullstackowego (np. React + Java/C#).</p>
+                    <a href="#" class="btn-link">Zobacz kod</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sekcja Kontakt -->
+        <section id="contact" class="section-contact">
+            <h2>Kontakt</h2>
+            <p>Zapraszam do dyskusji o kodzie i możliwościach współpracy.</p>
+            <a href="mailto:twoj.email@example.com" class="holo-btn" data-holo>Napisz do mnie</a>
+        </section>
+    </main>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2026. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
 </body>
 </html>
